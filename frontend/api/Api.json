@@ -1,0 +1,88 @@
+{
+    "Category": [
+        {
+            "name": "Books"
+        },
+        {
+            "name": "Snacks"
+        },
+        {
+            "name": "Electric"
+        },
+        {
+            "name": "Milk"
+        }
+    ],
+    "Reports": [
+        {
+            "Date": "08/04/2025",
+            "Time": "9:00:24",
+            "Category": "Milk",
+            "Reason": "kjgfiuwecgw",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/05/2025",
+            "Time": "10:15:33",
+            "Category": "Books",
+            "Reason": "Reading material for students",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/06/2025",
+            "Time": "11:45:10",
+            "Category": "Snacks",
+            "Reason": "Morning snack for office",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/07/2025",
+            "Time": "12:30:55",
+            "Category": "Electric",
+            "Reason": "Need electric tools for the project",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/08/2025",
+            "Time": "13:00:42",
+            "Category": "Milk",
+            "Reason": "Fresh milk for tea",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/09/2025",
+            "Time": "14:20:21",
+            "Category": "Books",
+            "Reason": "Books for the library",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/10/2025",
+            "Time": "15:30:50",
+            "Category": "Snacks",
+            "Reason": "Snacks for kids party",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/11/2025",
+            "Time": "16:40:18",
+            "Category": "Electric",
+            "Reason": "Electric wires for renovation",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/12/2025",
+            "Time": "17:50:37",
+            "Category": "Milk",
+            "Reason": "Milk for making custard",
+            "Image": "NA"
+        },
+        {
+            "Date": "08/13/2025",
+            "Time": "18:10:55",
+            "Category": "Books",
+            "Reason": "New books for research project",
+            "Image": "NA"
+        }
+    ]
+}

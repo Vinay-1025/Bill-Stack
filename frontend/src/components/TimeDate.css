@@ -1,0 +1,13 @@
+.date-time {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .date-time {
+        font-size: 12px;
+    }
+}

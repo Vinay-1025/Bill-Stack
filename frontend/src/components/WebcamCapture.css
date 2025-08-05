@@ -1,0 +1,22 @@
+.web-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 10px;
+}
+
+@media (max-width:550px) {
+    .buttons{
+        justify-content: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.413);
+        padding: 10px 0px;
+    }
+}
