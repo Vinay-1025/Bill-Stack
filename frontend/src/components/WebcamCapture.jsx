@@ -241,7 +241,8 @@ const WebcamForm = () => {
                 style={{ width: '100%', borderRadius: '10px' }}
               />
               <div className="mt-2">
-                <button
+                <div className="buttons">
+                  <button
                   onClick={() => setImage(null)}
                   className="btn btn-secondary me-2"
                   disabled={loading}
@@ -255,6 +256,7 @@ const WebcamForm = () => {
                 >
                   Take Another
                 </button>
+                </div>
               </div>
             </>
           )}
