@@ -246,7 +246,7 @@ const WebcamForm = () => {
                   className="btn btn-secondary me-2"
                   disabled={loading}
                 >
-                  🔄 Retake
+                  Retake
                 </button>
                 <button
                   onClick={capture}
