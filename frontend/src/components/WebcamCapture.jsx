@@ -253,7 +253,7 @@ const WebcamForm = () => {
                   className="btn btn-outline-primary"
                   disabled={loading}
                 >
-                  📸 Take Another
+                  Take Another
                 </button>
               </div>
             </>
@@ -264,7 +264,7 @@ const WebcamForm = () => {
         <div className="col-md-6 form">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label"><b>📅 Date:</b></label>
+              <label className="form-label"><b>Date:</b></label>
               <input
                 className="form-control"
                 type="text"
@@ -275,7 +275,7 @@ const WebcamForm = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label"><b>🕐 Time:</b></label>
+              <label className="form-label"><b>Time:</b></label>
               <input
                 className="form-control"
                 type="text"
@@ -286,17 +286,18 @@ const WebcamForm = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label"><b>📁 Category:</b></label>
+              <label className="form-label"><b>Category:</b></label>
               <select
                 className="form-select"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
                 disabled={loading}
+                style={{textTransform: 'capitalize'}}
               >
                 <option value="">Select Category</option>
                 {categories.map((cat, idx) => (
-                  <option key={idx} value={cat.name}>
+                  <option key={idx} value={cat.name} style={{textTransform: 'capitalize'}} >
                     {cat.name}
                   </option>
                 ))}
@@ -304,7 +305,7 @@ const WebcamForm = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label"><b>📝 Reason:</b></label>
+              <label className="form-label"><b>Reason:</b></label>
               <input
                 className="form-control"
                 type="text"
@@ -332,7 +333,7 @@ const WebcamForm = () => {
                 </>
               ) : (
                 <>
-                  💾 Submit Entry
+                  Submit Entry
                 </>
               )}
             </button>
