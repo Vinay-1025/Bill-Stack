@@ -13,10 +13,36 @@
     gap: 10px;
 }
 
+.scan-btn {
+    background: #f8f8f8;
+    color: #212EA0;
+    border: 1px solid #212EA0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.scan-btn:hover {
+    color: #212EA0;
+    background: #f8f8f8;
+    box-shadow: 0 0 15px #0000004c;
+    .icon-scale{
+        transform: scale(1.2);
+    }
+}
+
 @media (max-width:550px) {
     .buttons{
-        justify-content: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.413);
         padding: 10px 0px;
+    }
+
+    .form {
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.413);;
+    }
+}
+
+@media (max-width: 770px) {
+    .up-down {
+        flex-direction: column-reverse;
     }
 }

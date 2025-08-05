@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import TimeDate from './TimeDate';
-import { BiCategory, BiCategoryAlt, BiHome, BiHomeAlt, BiHomeAlt2, BiReceipt, BiScan, BiSolidDashboard, BiUpload } from 'react-icons/bi'
+import { BiAddToQueue, BiCategory, BiCategoryAlt, BiDetail, BiHome, BiHomeAlt, BiHomeAlt2, BiReceipt, BiScan, BiSolidDashboard, BiUpload } from 'react-icons/bi'
 
 
 const Header = () => {
@@ -19,7 +19,7 @@ const Header = () => {
         <ul className="navbar-nav nav-items">
           <li className="nav-item">
             <NavLink to="/" className="nav-link" activeclassname="active">
-              <BiScan size={24} />
+              <BiAddToQueue size={24} />
             </NavLink>
           </li>
           

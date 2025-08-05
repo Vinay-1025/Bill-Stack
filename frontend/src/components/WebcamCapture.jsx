@@ -3,6 +3,7 @@ import Webcam from 'react-webcam';
 import './WebcamCapture.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import { BiScan } from 'react-icons/bi';
 
 const API_BASE_URL = 'http://localhost:3001/api';
 
@@ -19,6 +20,7 @@ const WebcamForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isScanning, setIsScanning] = useState(false);  
 
   // Fetch categories from backend API
   useEffect(() => {
@@ -126,6 +128,7 @@ const WebcamForm = () => {
       } else {
         setError(response.data.message || 'Error saving entry');
       }
+      setIsScanning(false);
     }
 
     catch (error) {
@@ -153,9 +156,20 @@ const WebcamForm = () => {
     }
   };
 
+  const handleRetake = () => {
+    setImage(null);
+    setDate('');
+    setTime('');
+  }
+
   // Toggle camera view
   const handleCamView = () => {
     setCamView(!camView);
+  };
+
+  // Toggle scanning mode
+  const handleScan = () => {
+    setIsScanning(true);
   };
 
   // Clear error/success messages after 10 seconds
@@ -168,10 +182,8 @@ const WebcamForm = () => {
 
   return (
     <div className="container mt-4 pt-5">
-      <div className="row gy-4">
+      <div className="row gy-4 up-down">
         <div className="col-12">
-          {/* <h2 className="text-center mb-4">Webcam Data Capture</h2> */}
-
           {/* Error Alert */}
           {error && (
             <div className="alert alert-danger alert-dismissible fade show" role="alert">
@@ -199,13 +211,19 @@ const WebcamForm = () => {
           )}
         </div>
 
-        <div className="col-12 text-center mt-5">
-
-        </div>
-
         {/* Webcam Section */}
         <div className="col-md-6 text-center webcam">
-          {!image ? (
+          {!isScanning ? (
+            <div className="buttons">
+              <button
+              onClick={handleScan}
+              className="scan-btn"
+              disabled={loading}
+            >
+              <BiScan size={24} className='icon-scale'/>
+            </button>
+            </div>
+          ) : !image ? (
             <>
               <Webcam
                 key={camView ? 'user' : 'environment'}
@@ -218,19 +236,19 @@ const WebcamForm = () => {
               />
               <div className='buttons'>
                 <button
-                className='btn btn-primary'
-                onClick={handleCamView}
-                disabled={loading}
-              >
-                {camView ? "Switch to Rear Camera" : "Switch to Front Camera"}
-              </button>
-              <button
-                onClick={capture}
-                className="btn btn-primary mt-2"
-                disabled={loading}
-              >
-                Capture Image
-              </button>
+                  className='btn btn-primary'
+                  onClick={handleCamView}
+                  disabled={loading}
+                >
+                  {camView ? "Switch to Rear Camera" : "Switch to Front Camera"}
+                </button>
+                <button
+                  onClick={capture}
+                  className="btn btn-primary mt-2"
+                  disabled={loading}
+                >
+                  Capture Image
+                </button>
               </div>
             </>
           ) : (
@@ -243,19 +261,12 @@ const WebcamForm = () => {
               <div className="mt-2">
                 <div className="buttons">
                   <button
-                  onClick={() => setImage(null)}
-                  className="btn btn-secondary me-2"
-                  disabled={loading}
-                >
-                  Retake
-                </button>
-                <button
-                  onClick={capture}
-                  className="btn btn-outline-primary"
-                  disabled={loading}
-                >
-                  Take Another
-                </button>
+                    onClick={handleRetake}
+                    className="btn btn-secondary me-2"
+                    disabled={loading}
+                  >
+                    Retake
+                  </button>
                 </div>
               </div>
             </>
@@ -263,7 +274,7 @@ const WebcamForm = () => {
         </div>
 
         {/* Form Section */}
-        <div className="col-md-6 form">
+        <div className="col-md-6 form pt-4">
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label"><b>Date:</b></label>
@@ -299,7 +310,7 @@ const WebcamForm = () => {
               >
                 <option value="">Select Category</option>
                 {categories.map((cat, idx) => (
-                  <option key={idx} value={cat.name} style={{textTransform: 'capitalize'}} >
+                  <option key={idx} value={cat.name} style={{textTransform: 'capitalize'}}>
                     {cat.name}
                   </option>
                 ))}
@@ -308,38 +319,26 @@ const WebcamForm = () => {
 
             <div className="mb-3">
               <label className="form-label"><b>Reason:</b></label>
-              <input
+              <textarea
                 className="form-control"
-                type="text"
+                rows="1"
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 required
+                minLength="3"
                 disabled={loading}
-                placeholder="Enter reason (minimum 3 characters)"
-                minLength={3}
               />
-              <div className="form-text">
-                Characters: {reason.length}/3 minimum
-              </div>
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-success w-100"
-              disabled={loading || !image || !category || reason.trim().length < 3}
-            >
-              {loading ? (
-                <>
-                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                  Saving...
-                </>
-              ) : (
-                <>
-                  Submit Entry
-                </>
-              )}
-            </button>
-
+            <div className="mt-4 buttons">
+              <button
+                type="submit"
+                className="btn btn-success"
+                disabled={loading}
+              >
+                {loading ? 'Submitting...' : 'Submit'}
+              </button>
+            </div>
           </form>
         </div>
       </div>
