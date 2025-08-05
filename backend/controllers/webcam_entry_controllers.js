@@ -76,7 +76,7 @@ exports.getAllWebCamEntries=async (req, res) => {
   try {
     const {
       page = 1,
-      limit = 10,
+      limit = 9,
       category,
       sortBy = 'createdAt',
       sortOrder = 'desc',

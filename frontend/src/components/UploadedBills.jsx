@@ -46,7 +46,7 @@ const WebcamGallery = () => {
       const res = await axios.get(`${API_BASE_URL}/webcam-entries`, { params });
 
       setEntries(res.data.data.entries || []);
-      setTotalPages(res.data.totalPages || 1);
+      setTotalPages(res.data.totalPages || 5);
     } catch (err) {
       console.error('Error fetching webcam entries:', err);
       setError('Failed to load webcam data');

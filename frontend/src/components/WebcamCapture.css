@@ -25,6 +25,7 @@
     color: #212EA0;
     background: #f8f8f8;
     box-shadow: 0 0 15px #0000004c;
+    
     .icon-scale{
         transform: scale(1.2);
     }

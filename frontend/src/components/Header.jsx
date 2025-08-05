@@ -18,18 +18,18 @@ const Header = () => {
         </div>
         <ul className="navbar-nav nav-items">
           <li className="nav-item">
-            <NavLink to="/" className="nav-link" activeclassname="active">
+            <NavLink to="/" className="nav-link" activeclassname="active" title='Add Bill'>
               <BiAddToQueue size={24} />
             </NavLink>
           </li>
           
           <li className="nav-item">
-            <NavLink to="/bills" className="nav-link" activeclassname="active">
+            <NavLink to="/bills" className="nav-link" activeclassname="active" title='Reports'>
               <BiReceipt size={24} />
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/category" className="nav-link" activeclassname="active">
+            <NavLink to="/category" className="nav-link" activeclassname="active" title='Category'>
               <BiCategoryAlt size={24} />
             </NavLink>
           </li>
