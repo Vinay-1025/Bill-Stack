@@ -167,7 +167,7 @@ const WebcamForm = () => {
   }, [error]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 pt-5">
       <div className="row gy-4">
         <div className="col-12">
           {/* <h2 className="text-center mb-4">Webcam Data Capture</h2> */}
